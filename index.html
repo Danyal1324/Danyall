@@ -1,0 +1,49 @@
+cat > index.html <<EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توپ زرد ایردراپ</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #score {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #ball {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="score">Score: 0</div>
+    <div id="ball"></div>
+    <script>
+        let score = 0;
+        const scoreElement = document.getElementById('score');
+        const ball = document.getElementById('ball');
+
+        ball.addEventListener('click', () => {
+            score++;
+            scoreElement.textContent = 'Score: ' + score;
+            ball.style.top = Math.random() * 90 + '%';
+            ball.style.left = Math.random() * 90 + '%';
+        });
+    </script>
+</body>
+</html>
+EOF
